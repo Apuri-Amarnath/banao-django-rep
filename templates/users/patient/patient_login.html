@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% block title %}patient login{% endblock %}
+{% block content %}
+<div class="container">
+    <div class=" justify-content-center text-center">
+        <div class="col-md-6">
+            <div class="container mb-3">
+                    <h2 class="text-center">Patient Login</h2>
+                <div class="container">
+                    <form method="post">
+                        {% csrf_token %}
+                        {% if form.errors %}
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Error:</strong> Invalid username or password.
+                        </div>
+                        {% endif %}
+                       {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

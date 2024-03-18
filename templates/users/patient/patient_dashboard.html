@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+{% block title %}patient Dashboard {% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Welcome Patient!</h2>
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Your Profile</h3>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item"><strong>First Name:</strong> {{ patient_profile.user.first_name }}</li>
+                <li class="list-group-item"><strong>Last Name:</strong> {{ patient_profile.user.last_name }}</li>
+                <li class="list-group-item"><strong>Username:</strong> {{ patient_profile.user.username }}</li>
+                <li class="list-group-item"><strong>Email:</strong> {{ patient_profile.user.email }}</li>
+                <li class="list-group-item"><strong>Profile Picture:</strong> <img
+                        src="{{ patient_profile.profile_picture.url }}" alt="Profile Picture" class="img-thumbnail"
+                        style="max-width: 200px;"></li>
+                <li class="list-group-item"><strong>Address:</strong> {{ patient_profile.address_line1 }}, {{ patient_profile.city }}, {{ patient_profile.state }} - {{ patient_profile.pincode }}
+                </li>
+
+            </ul>
+        </div>
+        <a href="{% url 'patient_logout' %}" class="btn btn-primary">Logout</a>
+    </div>
+</div>
+{% endblock %}
